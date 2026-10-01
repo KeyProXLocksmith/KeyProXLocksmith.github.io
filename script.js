@@ -142,3 +142,21 @@ const m=document.querySelector('.menu'),n=document.querySelector('.nav');if(m&&n
     window.open('https://wa.me/' + phone + '?text=' + encodeURIComponent(message), '_blank', 'noopener,noreferrer');
   });
 })();
+
+
+// === KEYPROX LOGO BRANDING ===
+(() => {
+  const isSubpage = window.location.pathname.split('/').filter(Boolean).length > 1;
+  const logoSrc = isSubpage ? '../keyprox-logo.webp' : 'keyprox-logo.webp';
+
+  document.querySelectorAll('.brand').forEach(brand => {
+    brand.innerHTML = '<img class="brand-logo-img" src="' + logoSrc + '" alt="KeyProX Automotive Keys & Remotes">';
+  });
+
+  const footerFirst = document.querySelector('.footer-inner > div:first-child');
+  if (footerFirst && !footerFirst.querySelector('.footer-logo-img')) {
+    footerFirst.innerHTML =
+      '<img class="footer-logo-img" src="' + logoSrc + '" alt="KeyProX Automotive Keys & Remotes">' +
+      '<small>Automotive keys • programming • remote starters</small>';
+  }
+})();
